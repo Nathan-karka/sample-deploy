@@ -38,3 +38,8 @@ from routes.authRoutes import authBlueprint
 app.register_blueprint(router, url_prefix ='/admin')   
 app.register_blueprint(userBlueprint, url_prefix = '/admin/users') 
 app.register_blueprint(authBlueprint, url_prefix = '/auth/user')
+
+
+@app.route('/test')
+def hello():
+    return '<h1>Hello</h1>'
