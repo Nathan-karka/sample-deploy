@@ -22,4 +22,5 @@ services:
 
 volumes:
  db-data:
+ app-data:
   
