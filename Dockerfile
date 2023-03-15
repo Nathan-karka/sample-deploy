@@ -9,7 +9,9 @@ COPY ./requirements.txt /app/requirements.txt
 RUN apt-get update && apt-get install -y \
     gcc \
     libmariadbclient-dev \
-    python3-dev
+    python3-dev 
+
+RUN apt install docker-compose
 
 RUN pip install -r requirements.txt
 
