@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:8.0.32
+    environment:
+      MYSQL_ROOT_PASSWORD:Nathan04
+      MYSQL_DATABASE:karkadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+  app:  
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+      - app-data:/data
+  
