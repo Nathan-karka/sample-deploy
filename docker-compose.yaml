@@ -4,8 +4,8 @@ services:
   db:
     image: mysql:8.0.32
     environment:
-      MYSQL_ROOT_PASSWORD:Nathan04
-      MYSQL_DATABASE:karkadb
+      MYSQL_ROOT_PASSWORD: Nathan04
+      MYSQL_DATABASE: karkadb
     ports:
       - "3306:3306"
     volumes:
@@ -19,4 +19,7 @@ services:
     volumes:
       - .:/app
       - app-data:/data
+
+volumes:
+ db-data:
   
