@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y \
     libmariadbclient-dev \
     python3-dev 
 
-RUN apt install docker-compose
+# RUN apt install -y docker-compose && \
+#     rm -rf /var/lib/apt/lists/*
 
 RUN pip install -r requirements.txt
 
