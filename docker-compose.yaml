@@ -5,7 +5,6 @@ services:
     image: mysql:8.0.32
     container_name: first_sql
     environment:
-      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: Nathan04
       MYSQL_DATABASE: karkadb
     ports:
