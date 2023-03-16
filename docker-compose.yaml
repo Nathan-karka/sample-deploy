@@ -6,7 +6,7 @@ services:
     container_name: first_sql
     environment:
       MYSQL_USER: root
-      MYSQL_PASSWORD: Nathan04
+      MYSQL_ROOT_PASSWORD: Nathan04
       MYSQL_DATABASE: karkadb
     ports:
       - "3307:3306"
