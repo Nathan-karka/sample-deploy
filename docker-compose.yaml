@@ -14,6 +14,8 @@ services:
   app:  
     build: .
     container_name: app
+    environment:
+      DATABASE_URL: "mysql://root:Nathan04@localhost:3306/karkadb"
     ports:
       - "5000:5000"
     depends_on:
