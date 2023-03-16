@@ -3,7 +3,7 @@ version: '3'
 services:
   db:
     image: mysql:8.0.32
-    container_name: first_sql
+    container_name: sql
     environment:
       MYSQL_ROOT_PASSWORD: Nathan04
       MYSQL_DATABASE: karkadb
@@ -13,7 +13,7 @@ services:
       - db-data:/var/lib/mysql
   app:  
     build: .
-    container_name: first_app
+    container_name: app
     ports:
       - "5000:5000"
     depends_on:
