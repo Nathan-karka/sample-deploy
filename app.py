@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from flask_marshmallow import Marshmallow
 from flask_jwt_extended import JWTManager
 from datetime import timedelta
+import os
 
 app = Flask(__name__)
 JWTManager(app)
@@ -12,7 +13,13 @@ app.config["JWT_COOKIE_SECURE"] = False
 app.config["JWT_SECRET_KEY"] = "Nathan04"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(seconds=30)
 app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(minutes=1)
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:Nathan04@localhost:3306/karkadb"
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:Nathan04@localhost:3306/karkadb"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
+    os.getenv('DB_USER', 'root'),
+    os.getenv('DB_PASSWORD', ''),
+    os.getenv('DB_HOST', 'db'),
+    os.getenv('DB_NAME', 'karkadb'),
+)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSON_SORT_KEYS'] = False
 
