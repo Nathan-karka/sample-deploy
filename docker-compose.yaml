@@ -1,23 +1,13 @@
 version: '3'
 
 services:
-  db:
-    image: mysql:8.0.32
-    container_name: sql
-    environment:
-      MYSQL_HOST: app
-      MYSQL_ROOT_PASSWORD: Nathan04
-      MYSQL_DATABASE: karkadb
-    ports:
-      - "3306:3306"
-    volumes:
-      - db-data:/var/lib/mysql
-
   app:  
     build: .
     container_name: app
     environment:
       DATABASE_URL: "mysql://root:Nathan04@:3306/karkadb"
+      MYSQL_ROOT_PASSWORD: "Nathan04"
+      MYSQL_DATABASE: "karkadb"
     ports:
       - "5000:5000"
     depends_on:
@@ -25,6 +15,18 @@ services:
     volumes:
       - .:/app
       - app-data:/data
+
+  db:
+  image: mysql:8.0.32
+  container_name: sql
+  environment:
+    MYSQL_HOST: app
+    MYSQL_ROOT_PASSWORD: Nathan04
+    MYSQL_DATABASE: karkadb
+  ports:
+    - "3306:3306"
+  volumes:
+    - db-data:/var/lib/mysql
 
 volumes:
  db-data:
