@@ -5,6 +5,7 @@ services:
     image: mysql:8.0.32
     container_name: sql
     environment:
+      MYSQL_HOST: app
       MYSQL_ROOT_PASSWORD: Nathan04
       MYSQL_DATABASE: karkadb
     ports:
@@ -16,7 +17,7 @@ services:
     build: .
     container_name: app
     environment:
-      DATABASE_URL: "mysql://root:Nathan04@localhost:3306/karkadb"
+      DATABASE_URL: "mysql://root:Nathan04@:3306/karkadb"
     ports:
       - "5000:5000"
     depends_on:
