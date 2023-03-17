@@ -33,6 +33,7 @@ from models.chapter import Chapter
 from models.lesson import Lesson
 from models.topic import Topic
 from models.content import Content
+
 from models.mapping_models.course_level import CourseLevel
 from models.mapping_models.level_chapter import LevelChapter
 from models.mapping_models.chapter_lesson import ChapterLesson
@@ -46,6 +47,9 @@ app.register_blueprint(router, url_prefix ='/admin')
 app.register_blueprint(userBlueprint, url_prefix = '/admin/users') 
 app.register_blueprint(authBlueprint, url_prefix = '/auth/user')
 
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 @app.route('/test')
 def hello():
