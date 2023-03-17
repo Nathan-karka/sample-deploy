@@ -8,11 +8,10 @@ services:
       MYSQL_ROOT_PASSWORD: Nathan04
       MYSQL_DATABASE: karkadb
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - db-data:/var/lib/mysql
-    external: true
-    
+
   app:  
     build: .
     container_name: app
