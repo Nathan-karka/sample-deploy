@@ -17,16 +17,16 @@ services:
       - app-data:/data
 
   db:
-  image: mysql:8.0.32
-  container_name: sql
-  environment:
-    MYSQL_HOST: app
-    MYSQL_ROOT_PASSWORD: Nathan04
-    MYSQL_DATABASE: karkadb
-  ports:
-    - "3306:3306"
-  volumes:
-    - db-data:/var/lib/mysql
+    image: mysql:8.0.32
+    container_name: sql
+    environment:
+      MYSQL_HOST: app
+      MYSQL_ROOT_PASSWORD: Nathan04
+      MYSQL_DATABASE: karkadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
 
 volumes:
  db-data:
