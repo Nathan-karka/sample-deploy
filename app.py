@@ -13,13 +13,14 @@ app.config["JWT_COOKIE_SECURE"] = False
 app.config["JWT_SECRET_KEY"] = "Nathan04"
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(seconds=30)
 app.config["JWT_REFRESH_TOKEN_EXPIRES"] = timedelta(minutes=1)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DB_URL') 
 # app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:Nathan04@localhost:3306/karkadb"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
-    os.getenv('DB_USER', 'root'),
-    os.getenv('DB_PASSWORD', ''),
-    os.getenv('DB_HOST', 'db'),
-    os.getenv('DB_NAME', 'karkadb'),
-)
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://{}:{}@{}/{}'.format(
+#     os.getenv('DB_USER', 'root'),
+#     os.getenv('DB_PASSWORD', ''),
+#     os.getenv('DB_HOST', 'db'),
+#     os.getenv('DB_NAME', 'karkadb'),
+# )
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JSON_SORT_KEYS'] = False
 
